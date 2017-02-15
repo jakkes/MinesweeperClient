@@ -14,7 +14,7 @@ function redrawBoard(board){
 	
 	for(var x = 0; x < size; x++){
 		for(var y = 0; y < size; y++){
-			drawFunctions[board[x][y]](x,y,size);
+			drawFunctions[board[x][y]](x*size,y*size,size);
 		}
 	}
 	

@@ -6,6 +6,6 @@ conn.onmessage = function(e){
 };
 
 conn.onopen = function(e){
-	
+	displayMenu();
 };
 
