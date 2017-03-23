@@ -18,13 +18,19 @@ function newBoard(size){
 	}
 }
 
+function NodeRevealed(node){
+	board[node.X][node.Y] = node.Type;
+	redrawBoard(board);
+}
+
 function gameClick(e){
-	
+	console.log(e);
+	revealNode(Math.floor(e.clientX/size),Math.floor(e.clientY/size));
 }
 
 function startNewGame(){
 	newGameRequest();
-	document.onclick = gameClick;
+	canvas.onclick = gameClick;
 	newBoard(20);
 	redrawBoard(board);
 }

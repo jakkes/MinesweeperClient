@@ -4,7 +4,7 @@ context.clear = function () {
 };
 
 var fontColors = ["Blue","Green","Red","DarkBlue","Maroon","Cyan","LightPink","Black"];
-var backColors = ["DarkGray","LightGray"];
+var backColors = ["Purple","LightGray"];
 
 function redrawBoard(board){
 	context.clear();
@@ -17,7 +17,6 @@ function redrawBoard(board){
 			drawFunctions[board[x][y]](x*size,y*size,size);
 		}
 	}
-	
 };
 
 var drawFunctions = new Array();

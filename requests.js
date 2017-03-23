@@ -6,5 +6,13 @@ function newGameRequest(){
 }
 
 function revealNode(x,y){
-	
+	conn.send(JSON.stringify(
+		{
+			Action: "Reveal",
+			Node: {
+				X: x,
+				Y: y
+			}
+		}
+	));
 }
