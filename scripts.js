@@ -18,11 +18,13 @@ function newBoard(size){
 	}
 }
 
-
+function gameClick(e){
+	
+}
 
 function startNewGame(){
+	newGameRequest();
+	document.onclick = gameClick;
 	newBoard(20);
 	redrawBoard(board);
-	
-	newGameRequest();
 }

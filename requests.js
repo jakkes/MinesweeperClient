@@ -4,3 +4,7 @@ function newGameRequest(){
 		Mode: "Medium"
 	}));
 }
+
+function revealNode(x,y){
+	
+}
