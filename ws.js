@@ -8,6 +8,12 @@ conn.onmessage = function(e){
 		case "NodeRevealed":
 			NodeRevealed(o.Node)
 			break;
+		case "ClearNodesRevealed":
+			ClearNodesRevealed(o.Nodes);
+			break;
+		case "GameOver":
+			GameOver(o.Board);
+			break;
 	}
 };
 

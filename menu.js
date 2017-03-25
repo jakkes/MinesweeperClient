@@ -7,7 +7,7 @@ function displayMenu(){
 	context.fillStyle = "Purple";
 	context.fillText("Medium",10,90)
 
-	document.onclick = menuClick;
+	canvas.onclick = menuClick;
 }
 
 function menuClick(e){

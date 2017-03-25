@@ -4,17 +4,15 @@ context.clear = function () {
 };
 
 var fontColors = ["Blue","Green","Red","DarkBlue","Maroon","Cyan","LightPink","Black"];
-var backColors = ["Purple","LightGray"];
+var backColors = ["Purple","LightGray","Black"];
 
-function redrawBoard(board){
+function redrawBoard(){
 	context.clear();
 	
-	var size = board.length;
-	var squareSize = canvas.width / size;
-	
-	for(var x = 0; x < size; x++){
-		for(var y = 0; y < size; y++){
-			drawFunctions[board[x][y]](x*size,y*size,size);
+	var squareSize = size / board.length;
+	for(var x = 0; x < board.length; x++){
+		for(var y = 0; y < board.length; y++){
+			drawFunctions[board[x][y]](x*squareSize,y*squareSize,squareSize);
 		}
 	}
 };
@@ -32,45 +30,47 @@ drawFunctions[6] = drawSix;
 drawFunctions[7] = drawSeven;
 drawFunctions[8] = drawEight;
 
-function drawUnrevealed(x,y,size){
+function drawUnrevealed(x,y,sqsize){
 	context.fillStyle = backColors[0];
-	context.fillRect(x,y,x+size,y+size);
+	context.fillRect(x,y,x+sqsize,y+sqsize);
 }
-function drawBomb(x,y,size){
-	
+function drawBomb(x,y,sqsize){
+	context.fillStyle = backColors[2];
+	context.fillRect(x,y,x+sqsize,y+sqsize);
 }
-function drawClear(x,y,size){
-	
+function drawClear(x,y,sqsize){
+	context.fillStyle = backColors[1];
+	context.fillRect(x,y,x+sqsize,y+sqsize);
 }
-function drawOne(x,y,size){
-	drawNumber(x,y,1,size);
+function drawOne(x,y,sqsize){
+	drawNumber(x,y,1,sqsize);
 }
-function drawTwo(x,y,size){
-	drawNumber(x,y,2,size);
+function drawTwo(x,y,sqsize){
+	drawNumber(x,y,2,sqsize);
 }
-function drawThree(x,y,size){
-	drawNumber(x,y,3,size);
+function drawThree(x,y,sqsize){
+	drawNumber(x,y,3,sqsize);
 }
-function drawFour(x,y,size){
-	drawNumber(x,y,4,size);
+function drawFour(x,y,sqsize){
+	drawNumber(x,y,4,sqsize);
 }
-function drawFive(x,y,size){
-	drawNumber(x,y,5,size);
+function drawFive(x,y,sqsize){
+	drawNumber(x,y,5,sqsize);
 }
-function drawSix(x,y,size){
-	drawNumber(x,y,6,size);
+function drawSix(x,y,sqsize){
+	drawNumber(x,y,6,sqsize);
 }
-function drawSeven(x,y,size){
-	drawNumber(x,y,7,size);
+function drawSeven(x,y,sqsize){
+	drawNumber(x,y,7,sqsize);
 }
-function drawEight(x,y,size){
-	drawNumber(x,y,8,size);
+function drawEight(x,y,sqsize){
+	drawNumber(x,y,8,sqsize);
 }
-function drawNumber(x,y,i,size){
+function drawNumber(x,y,i,sqsize){
 	
 	context.fillStyle = backColors[1];
-	context.fillRect(x,y,x+size,y+size);
+	context.fillRect(x,y,x+sqsize,y+sqsize);
 	
 	context.fillStyle = fontColors[i-1];
-	context.fillText(i,x,y);
+	context.fillText(i,x+sqsize/4,y+3*sqsize/4);
 }
